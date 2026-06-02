@@ -17,6 +17,18 @@
     var menuToggles = document.querySelectorAll('[data-open="#main-menu"]');
     var topLink = document.querySelector('#top-link');
 
+    document.addEventListener('click', function (event) {
+      if (!(event.target instanceof Element)) {
+        return;
+      }
+
+      var link = event.target.closest('a[href="#"]');
+
+      if (link) {
+        event.preventDefault();
+      }
+    });
+
     if (menu) {
       var overlay = document.createElement('button');
       overlay.type = 'button';
